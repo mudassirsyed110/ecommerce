@@ -7,6 +7,7 @@ import { onGetFeatured } from "../redux/Featured/featuredAction";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    paddingRight: "3rem",
   },
   paper: {
     padding: theme.spacing(2),
@@ -69,20 +70,20 @@ function Featured(props) {
   const { loading, tags } = allList;
   const { loading4, featuredList } = featuredProducts;
   console.log(featuredList);
-  const materialsbyidfilter = featuredList?.data?.featured?.map(
+  const featuredbyidfilter = featuredList?.data?.featured?.map(
     (el) => el.productId
   );
 
-  const finalmaterials = tags?.data?.products?.filter((data) =>
-    materialsbyidfilter?.includes(data.id)
+  const featuredDetails = tags?.data?.products?.filter((data) =>
+    featuredbyidfilter?.includes(data.id)
   );
   return (
     <>
       <ClippedDrawer />
       <div className="papergrid main-content">
         <Grid container className={classes.root} spacing={3}>
-          {finalmaterials?.length > 0 ? (
-            finalmaterials?.map((el) => (
+          {featuredDetails?.length > 0 ? (
+            featuredDetails?.map((el) => (
               <>
                 <Grid
                   className={classes.control}
@@ -99,7 +100,12 @@ function Featured(props) {
                     </div>
                   </div>
                   <Grid container spacing={3}>
-                    <Grid item xs={12} lg={5}>
+                    <Grid
+                      item
+                      xs={12}
+                      lg={5}
+                      style={{ padding: "1.5rem 0 0 0.7rem" }}
+                    >
                       <span className="name">{el.name}</span>
                       <Grid container spacing={5}>
                         <Grid item xs={12} lg={2}></Grid>
@@ -107,7 +113,7 @@ function Featured(props) {
                         <Grid item xs={12} lg={5}></Grid>
                       </Grid>
                       <Grid item xs={12} lg={12}>
-                        <span className={classes.price}>INR {el.price}.00</span>
+                        <span className="price">INR {el.price}.00</span>
                       </Grid>
                     </Grid>
                     <Grid item xs={12} lg={2}></Grid>

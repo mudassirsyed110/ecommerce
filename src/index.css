@@ -85,8 +85,13 @@ color: #000000;
 
 }
 .name{
-  font-size: 18px;
-  font-weight:100;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+  text-transform: uppercase;
+  color: #4F4733;
+  margin-top: 3rem;
 }
 .materialname{
   font-size:13px !important;
@@ -109,4 +114,11 @@ font-weight: bold;
 font-size: 14px;
 line-height: 19px;
 color: #000000;
+}
+.price{
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 20px;
+color: #5A112B;
 }

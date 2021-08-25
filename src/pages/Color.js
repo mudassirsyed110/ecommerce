@@ -8,6 +8,7 @@ import ClippedDrawer from "../components/reusable/Sidebar";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    paddingRight: "3rem",
   },
   paper: {
     padding: theme.spacing(2),
@@ -95,7 +96,12 @@ function Color(props) {
                   </div>
                 </div>
                 <Grid container spacing={3}>
-                  <Grid item xs={12} lg={6}>
+                  <Grid
+                    item
+                    xs={12}
+                    lg={6}
+                    style={{ padding: "1.5rem 0 0 0.7rem" }}
+                  >
                     <span className="name">{el.name}</span>
                     <Grid container spacing={5}>
                       <Grid item xs={12} lg={2}></Grid>
@@ -107,7 +113,7 @@ function Color(props) {
                       <Grid item xs={12} lg={5}></Grid>
                     </Grid>
                     <Grid item xs={12} lg={12}>
-                      <span className={classes.price}>INR {el.price}.00</span>
+                      <span className="price">INR {el.price}.00</span>
                     </Grid>
                   </Grid>
                   <Grid item xs={12} lg={2}></Grid>
