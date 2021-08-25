@@ -43,54 +43,54 @@ export default function ClippedDrawer() {
       >
         <div className={classes.drawerContainer}>
           <List>
-            <ListItemText primary="Tags" />
+            <ListItemText primary="Tags" className="sidebar-heading" />
             <Link to="/">
-              <ListItemText primary="All" />
+              <ListItemText primary="All" className="sidebar-content" />
             </Link>
           </List>
           <List>
-            <ListItemText primary="Materials" />
+            <ListItemText primary="Materials" className="sidebar-heading" />
             <Link to="/allMaterials">
-              <ListItemText primary="All" />
+              <ListItemText primary="All" className="sidebar-content"/>
             </Link>
             <Link to="/cotton">
-              <ListItemText primary="Cotton" />
+              <ListItemText primary="Cotton" className="sidebar-content"/>
             </Link>
             <Link to="/leather">
-              <ListItemText primary="Leather" />
+              <ListItemText primary="Leather" className="sidebar-content"/>
             </Link>
             <Link to="/lycra">
-              <ListItemText primary="Lycra" />
+              <ListItemText primary="Lycra" className="sidebar-content"/>
             </Link>
             <Link to="/plastic">
-              <ListItemText primary="Plastic" />
+              <ListItemText primary="Plastic" className="sidebar-content"/>
             </Link>
             <Link to="/polyester">
-              <ListItemText primary="Ployester" />
+              <ListItemText primary="Ployester"className="sidebar-content" />
             </Link>
           </List>
           <List>
-            <ListItemText primary="Colors" />
+            <ListItemText primary="Colors" className="sidebar-heading" />
             <Link to="/allColors">
-              <ListItemText primary="All" />
+              <ListItemText primary="All" className="sidebar-content" />
             </Link>
             <Link to="/black">
               {" "}
-              <ListItemText primary="Black" />
+              <ListItemText primary="Black" className="sidebar-content"/>
             </Link>
             <Link to="/red">
-              <ListItemText primary="Red" />
+              <ListItemText primary="Red" className="sidebar-content"/>
             </Link>
             <Link to="/yellow">
               {" "}
-              <ListItemText primary="Yellow" />
+              <ListItemText primary="Yellow" className="sidebar-content"/>
             </Link>
             <Link to="/green">
               {" "}
-              <ListItemText primary="Green" />
+              <ListItemText primary="Green" className="sidebar-content" />
             </Link>
             <Link to="/blue">
-              <ListItemText primary="Blue" />
+              <ListItemText primary="Blue" className="sidebar-content"/>
             </Link>
           </List>
         </div>
