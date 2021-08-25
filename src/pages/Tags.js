@@ -7,6 +7,7 @@ import { onGetTags } from "../redux/Tags/tagAction";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    paddingRight: "3rem",
   },
   paper: {
     padding: theme.spacing(2),
