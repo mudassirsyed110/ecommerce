@@ -74,10 +74,6 @@ function Material(props) {
   const { loading, tags } = allList;
   const { loading2, materials } = materialList;
   const { loading3, colors } = colorsList;
-  console.log(colors);
-  console.log(materials);
-  console.log(materials?.data?.material);
-  console.log(props.location.pathname);
   const materialsbyidfilter = materials?.data?.material
     ?.filter((e) => props.location.pathname.includes(e.name))
     .map((el) => el.id);
@@ -87,16 +83,6 @@ function Material(props) {
   const finalmaterials = tags?.data?.products?.filter((data) =>
     materialsbyidfilter?.includes(data.materialId)
   );
-  console.log(finalmaterials);
-
-  //const materialcolorfilter = colors?.colors?.filter((data)=>finalmaterials.map(el=>el.colorId).includes(data.id)).map(el=>(el.name))
-
-  //console.log(materialcolorfilter)
-  console.log(materialsbyidfilter, materialnamefilter);
-  //console.log(materialsbyidfilter)
-  //console.log(tags.products.filter((data)=> materialsbyidfilter.includes(data.materialId)))
-  //  console.log(materials.material.filter((e)=>props.location.pathname.includes(e.name)).map(el=>el.id))
-  //console.log(props.location.pathname )
 
   return (
     <>

@@ -1,7 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
 import ButtonAppBar from "./components/reusable/Appbar";
-import ClippedDrawer from "./components/reusable/Sidebar";
 import { Provider } from "react-redux";
 import store from "./store";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -20,8 +18,6 @@ function App() {
               <h3>MYCOOLSHOP.COM</h3>
             </div>
             <ButtonAppBar />
-            {/* <ClippedDrawer /> */}
-
             <Route exact path="/" component={Tags}></Route>
             <Route exact path="/allMaterials" component={Tags}></Route>
             <Route exact path="/allColors" component={Tags}></Route>

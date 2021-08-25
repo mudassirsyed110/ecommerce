@@ -8,12 +8,8 @@ import { Link } from "react-router-dom";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
-  //   root: {
-  //     display: "flex",
-  //   },
   drawer: {
     width: drawerWidth,
-    // flexShrink: 0,
     marginRight: "14rem",
     boxShadow: "none",
   },
@@ -38,13 +34,6 @@ export default function ClippedDrawer() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      {/* <AppBar position="fixed" className={classes.appBar}> */}
-      {/* <Toolbar>
-          <Typography variant="h6" noWrap>
-            Clipped drawer
-          </Typography>
-        </Toolbar> */}
-      {/* </AppBar> */}
       <Drawer
         className={classes.drawer}
         variant="permanent"
@@ -106,7 +95,6 @@ export default function ClippedDrawer() {
           </List>
         </div>
       </Drawer>
-      {/* <main className={classes.content}><Tags /></main> */}
     </div>
   );
 }

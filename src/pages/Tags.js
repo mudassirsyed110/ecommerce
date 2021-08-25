@@ -56,10 +56,7 @@ function Tags(props) {
   const allList = useSelector((state) => {
     return state.tags;
   });
-  console.log(allList);
   const { loading, tags } = allList;
-  console.log(tags);
-  console.log(tags?.products);
   return (
     <>
       <ClippedDrawer />

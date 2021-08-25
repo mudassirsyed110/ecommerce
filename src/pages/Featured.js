@@ -2,8 +2,6 @@ import { Grid, makeStyles } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ClippedDrawer from "../components/reusable/Sidebar";
-import { onGetColors } from "../redux/Color/colorAction";
-import { onGetMaterials } from "../redux/Material/materialAction";
 import { onGetTags } from "../redux/Tags/tagAction";
 import { onGetFeatured } from "../redux/Featured/featuredAction";
 const useStyles = makeStyles((theme) => ({
@@ -59,26 +57,16 @@ function Featured(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(onGetTags());
-    dispatch(onGetMaterials());
-    dispatch(onGetColors());
     dispatch(onGetFeatured());
   }, []);
   const allList = useSelector((state) => {
     return state.tags;
-  });
-  const materialList = useSelector((state) => {
-    return state.materials;
-  });
-  const colorsList = useSelector((state) => {
-    return state.colors;
   });
   const featuredProducts = useSelector((state) => {
     return state.featured;
   });
   console.log(featuredProducts);
   const { loading, tags } = allList;
-  const { loading2, materials } = materialList;
-  const { loading3, colors } = colorsList;
   const { loading4, featuredList } = featuredProducts;
   console.log(featuredList);
   const materialsbyidfilter = featuredList?.data?.featured?.map(
@@ -88,8 +76,6 @@ function Featured(props) {
   const finalmaterials = tags?.data?.products?.filter((data) =>
     materialsbyidfilter?.includes(data.id)
   );
-
-  console.log(finalmaterials);
   return (
     <>
       <ClippedDrawer />
@@ -116,12 +102,8 @@ function Featured(props) {
                     <Grid item xs={12} lg={5}>
                       <span className="name">{el.name}</span>
                       <Grid container spacing={5}>
-                        <Grid item xs={12} lg={2}>
-                          {/* <span className="materialname">{materialnamefilter}</span> */}
-                        </Grid>
-                        <Grid item xs={12} lg={2}>
-                          {/* <span className="materialname">{materialcolorfilter}</span> */}
-                        </Grid>
+                        <Grid item xs={12} lg={2}></Grid>
+                        <Grid item xs={12} lg={2}></Grid>
                         <Grid item xs={12} lg={5}></Grid>
                       </Grid>
                       <Grid item xs={12} lg={12}>
