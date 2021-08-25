@@ -81,7 +81,7 @@ function Tags(props) {
                         <p>Add to cart</p>
                       </div>
                     </div>
-                    <Grid container spacing={3}>
+                    <Grid item container spacing={3}>
                       <Grid
                         item
                         xs={12}
@@ -89,28 +89,18 @@ function Tags(props) {
                         style={{ padding: "1.5rem 0 0 0.7rem" }}
                       >
                         <span className="name">{el.name}</span>
-                        <Grid container spacing={5}>
-                          <Grid item xs={12} lg={2}>
-                            {/* <span className="materialname">{materialnamefilter}</span> */}
-                          </Grid>
-                          <Grid item xs={12} lg={2}>
-                            {/* <span className="materialname">{materialcolorfilter}</span> */}
-                          </Grid>
-                          <Grid item xs={12} lg={5}></Grid>
-                        </Grid>
-                        <Grid
-                          item
-                          xs={12}
-                          lg={12}
-                          style={{
-                            paddingTop: "1.1rem",
-                            paddingBottom: "2rem",
-                          }}
-                        >
-                          <span className="price">INR {el.price}.00</span>
-                        </Grid>
                       </Grid>
-                      <Grid item xs={12} lg={2}></Grid>
+                      <Grid
+                        item
+                        xs={12}
+                        lg={12}
+                        style={{
+                          paddingTop: "1.1rem",
+                          paddingBottom: "2rem",
+                        }}
+                      >
+                        <span className="price">INR {el.price}.00</span>
+                      </Grid>
                     </Grid>
                   </Grid>
                 </>

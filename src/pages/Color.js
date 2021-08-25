@@ -104,13 +104,11 @@ function Color(props) {
                   >
                     <span className="name">{el.name}</span>
                     <Grid container spacing={5}>
-                      <Grid item xs={12} lg={2}></Grid>
                       <Grid item xs={12} lg={2}>
                         <span className="materialname">
                           {materialcolorfilter}
                         </span>
                       </Grid>
-                      <Grid item xs={12} lg={5}></Grid>
                     </Grid>
                     <Grid
                       item
@@ -121,7 +119,6 @@ function Color(props) {
                       <span className="price">INR {el.price}.00</span>
                     </Grid>
                   </Grid>
-                  <Grid item xs={12} lg={2}></Grid>
                 </Grid>
               </Grid>
             ))
