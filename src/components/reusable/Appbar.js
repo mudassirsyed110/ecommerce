@@ -4,7 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import CartIcon from "../../assets/shoppingcart.png";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,12 +45,16 @@ export default function ButtonAppBar() {
         <Toolbar>
           <Typography className={classes.titlehead}>
             {" "}
-            <Link to="/">All Products </Link>
+            <NavLink exact to="/" activeClassName="active-link">
+              All Products{" "}
+            </NavLink>
           </Typography>
 
           <Typography className={classes.title}>
             {" "}
-            <Link to="/featured">Featured Products </Link>
+            <NavLink to="/featured" activeClassName="active-link">
+              Featured Products{" "}
+            </NavLink>
           </Typography>
 
           <img src={CartIcon} alt="" />
