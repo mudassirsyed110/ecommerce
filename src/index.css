@@ -63,6 +63,7 @@ color: #000000;
 .image__img{
   display: block !important;
   width: 100% !important;
+  max-height: 442px;
 }
 .image__overlay{
   position:absolute !important;
@@ -97,7 +98,6 @@ color: #000000;
   font-size:13px !important;
   color:gray; 
   text-transform: uppercase !important;
-  margin-left: 10px;
   font-weight:200 !important
 }
 a{
