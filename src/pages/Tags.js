@@ -2,7 +2,9 @@ import { Grid, makeStyles, Paper } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ClippedDrawer from "../components/reusable/Sidebar";
+import { addToCart } from "../redux/Cart/cartAction";
 import { onGetTags } from "../redux/Tags/tagAction";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,6 +59,7 @@ function Tags(props) {
   const allList = useSelector((state) => {
     return state.tags;
   });
+
   const { loading, tags } = allList;
   return (
     <>
@@ -78,7 +81,13 @@ function Tags(props) {
                     <div className="image">
                       <img className="image__img" src={el.image}></img>
                       <div className="image__overlay">
-                        <p>Add to cart</p>
+                        <p
+                          onClick={() => {
+                            props.addToCartHandler({ el: el });
+                          }}
+                        >
+                          Add to cart
+                        </p>
                       </div>
                     </div>
                     <Grid item container spacing={3}>
@@ -114,5 +123,11 @@ function Tags(props) {
     </>
   );
 }
+const mapStateToProps = (state) => ({
+  data: state.cart,
+});
+const mapDispatchToProps = (dispatch) => ({
+  addToCartHandler: (data) => dispatch(addToCart(data)),
+});
 
-export default Tags;
+export default connect(mapStateToProps, mapDispatchToProps)(Tags);

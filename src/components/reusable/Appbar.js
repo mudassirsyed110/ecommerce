@@ -5,6 +5,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import CartIcon from "../../assets/shoppingcart.png";
 import { NavLink } from "react-router-dom";
+import { connect, useSelector } from "react-redux";
+import { addToCart } from "../../redux/Cart/cartAction";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,10 +36,28 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "19px",
     color: "#000000",
   },
+  end: {
+    display: "flex",
+    alignItems: "center",
+    gap: "0.5rem",
+  },
+  count: {
+    fontStyle: "normal",
+    fontweight: "bold",
+    fontSize: "14px",
+    lineHeight: "19px",
+    textAlign: "center",
+    color: "#000000",
+  },
 }));
 
-export default function ButtonAppBar() {
+function ButtonAppBar(props) {
   const classes = useStyles();
+  console.log(props.data ? props.data.length : "");
+  const cartLength = useSelector((state) => {
+    return state.cartItems;
+  });
+  console.log(cartLength);
 
   return (
     <div className={classes.root}>
@@ -56,10 +76,21 @@ export default function ButtonAppBar() {
               Featured Products{" "}
             </NavLink>
           </Typography>
-
-          <img src={CartIcon} alt="" />
+          <div className={classes.end}>
+            <img src={CartIcon} alt="" width="100%" />
+            <h1 className={classes.count} style={{ margin: "0" }}>
+              {props.data ? props.data.length : ""}
+            </h1>
+          </div>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
+const mapStateToProps = (state) => ({
+  data: state.cart,
+});
+const mapDispatchToProps = (dispatch) => ({
+  addToCartHandler: (data) => dispatch(addToCart(data)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ButtonAppBar);

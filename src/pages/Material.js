@@ -1,7 +1,8 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import ClippedDrawer from "../components/reusable/Sidebar";
+import { addToCart } from "../redux/Cart/cartAction";
 import { onGetColors } from "../redux/Color/colorAction";
 import { onGetMaterials } from "../redux/Material/materialAction";
 import { onGetTags } from "../redux/Tags/tagAction";
@@ -74,7 +75,6 @@ function Material(props) {
   });
   const { loading, tags } = allList;
   const { loading2, materials } = materialList;
-  const { loading3, colors } = colorsList;
   const materialsbyidfilter = materials?.data?.material
     ?.filter((e) => props.location.pathname.includes(e.name))
     .map((el) => el.id);
@@ -104,7 +104,13 @@ function Material(props) {
                   <div className="image">
                     <img className="image__img" src={el.image}></img>
                     <div className="image__overlay">
-                      <p>Add to cart</p>
+                      <p
+                        onClick={() => {
+                          props.addToCartHandler({ el: el });
+                        }}
+                      >
+                        Add to cart
+                      </p>
                     </div>
                   </div>
                   <Grid container spacing={3}>
@@ -147,4 +153,11 @@ function Material(props) {
   );
 }
 
-export default Material;
+const mapStateToProps = (state) => ({
+  data: state.cart,
+});
+const mapDispatchToProps = (dispatch) => ({
+  addToCartHandler: (data) => dispatch(addToCart(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Material);

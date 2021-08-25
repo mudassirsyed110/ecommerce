@@ -1,9 +1,11 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import ClippedDrawer from "../components/reusable/Sidebar";
 import { onGetTags } from "../redux/Tags/tagAction";
 import { onGetFeatured } from "../redux/Featured/featuredAction";
+import { addToCart } from "../redux/Cart/cartAction";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -96,7 +98,13 @@ function Featured(props) {
                   <div className="image">
                     <img className="image__img" src={el.image}></img>
                     <div className="image__overlay">
-                      <p>Add to cart</p>
+                      <p
+                        onClick={() => {
+                          props.addToCartHandler({ el: el });
+                        }}
+                      >
+                        Add to cart
+                      </p>
                     </div>
                   </div>
                   <Grid container spacing={3}>
@@ -128,5 +136,11 @@ function Featured(props) {
     </>
   );
 }
+const mapStateToProps = (state) => ({
+  data: state.cart,
+});
+const mapDispatchToProps = (dispatch) => ({
+  addToCartHandler: (data) => dispatch(addToCart(data)),
+});
 
-export default Featured;
+export default connect(mapStateToProps, mapDispatchToProps)(Featured);

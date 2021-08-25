@@ -1,9 +1,10 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import { onGetTags } from "../redux/Tags/tagAction";
-import { useDispatch, useSelector } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { onGetColors } from "../redux/Color/colorAction";
 import ClippedDrawer from "../components/reusable/Sidebar";
+import { addToCart } from "../redux/Cart/cartAction";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -92,7 +93,13 @@ function Color(props) {
                 <div className="image">
                   <img className="image__img" src={el.image}></img>
                   <div className="image__overlay">
-                    <p>Add to cart</p>
+                    <p
+                      onClick={() => {
+                        props.addToCartHandler({ el: el });
+                      }}
+                    >
+                      Add to cart
+                    </p>
                   </div>
                 </div>
                 <Grid container spacing={3}>
@@ -133,4 +140,11 @@ function Color(props) {
   );
 }
 
-export default Color;
+const mapStateToProps = (state) => ({
+  data: state.cart,
+});
+const mapDispatchToProps = (dispatch) => ({
+  addToCartHandler: (data) => dispatch(addToCart(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Color);
